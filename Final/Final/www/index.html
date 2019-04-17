@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <!-- For jQuery Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+    <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <section id="homescreen" data-role="page">
+      <header data-role="header" data-position="fixed">
+        <h1>Health Foods Online Store</h1>
+      </header>
+
+      <div class="ui-content">
+        <img id="main-page-banner" src="img/food_banner.jpg">
+
+        <div data-role="collapsible" data-collapsed="false">
+          <h4>Categories</h4>
+          <ul data-role="listview">
+              <li><a href="#gluten-free">Gluten Free</a></li>
+              <li><a href="#dairy-free">Dairy Free</a></li>
+          </ul>
+        </div>
+
+        <a href="#about" class="ui-btn">About Us</a>
+
+
+      </div>
+
+      <footer data-role="footer" data-position="fixed">
+        <a href="#contact" class="ui-btn-left">Contact Us</a>
+        <h4>&copy; 2019</h4>
+      </footer>
+    </section>
+
+    <!--Page: gluten-free-->
+    <section id="gluten-free" data-role="page">
+      <header data-role="header" data-position="fixed">
+        <a href="#homescreen" class="ui-btn-left">Home</a>
+        <h1>Gluten Free</h1>
+      </header>
+
+      <div data-role="main" class="ui-content">
+
+        <form method="get" action="">
+
+          <fieldset class="ui-field-contain">
+           <label for="select1">Food Item:</label>
+           <select name="select1" id="select1">
+            <option value="value1">Spaghetti</option>
+            <option value="value2">Bread</option>
+            <option value="value3">Crackers</option>
+            <option value="value4">Tortilla</option>
+           </select>
+          </fieldset>
+
+          <fieldset data-role="controlgroup">
+            <legend>Order:</legend>
+            <label for="rb1">One Time Purchase</label>
+            <input type="radio" name="rb" id="rb1" value="one-time" checked="checked"/>
+            <label for="rb2">Recurring Order</label>
+            <input type="radio" name="rb" id="rb2" value="recurring"/>
+          </fieldset>
+
+          <fieldset data-role="controlgroup">
+            <legend>Shipping:</legend>
+            <label for="cb1">Two Day Shipping</label>
+            <input type="checkbox" name="cb1" id="cb1" />
+          </fieldset>
+
+          <input type="submit" value="Add to Cart" />
+
+        </form>
+
+
+      </div>
+
+      <footer data-role="footer" data-position="fixed">
+        <a href="#contact" class="ui-btn-left">Contact Us</a>
+        <h4>&copy; 2019</h4>
+      </footer>
+    </section>
+    <!--END Page: gluten-free-->
+
+    <!--Page: dairy-free-->
+    <section id="dairy-free" data-role="page">
+      <header data-role="header" data-position="fixed">
+        <a href="#homescreen" class="ui-btn-left">Home</a>
+        <h1>Dairy Free</h1>
+      </header>
+
+      <div data-role="main" class="ui-content">
+        <form method="get" action="">
+          <fieldset class="ui-field-contain">
+           <label for="food-item">Food Item:</label>
+           <select name="food-item" id="food-item">
+            <option value="frozen-dessert">Frozen Dessert</option>
+            <option value="almond-milk">Almond Milk</option>
+           </select>
+          </fieldset>
+
+          <fieldset class="ui-field-contain">
+            <legend>How Many?</legend>
+            <!-- <label for="num">Tell Us</label> -->
+            <input type="range" name="num" id="num" value="70" min="0" max="100" />
+          </fieldset>
+
+          <fieldset class="ui-field-contain">
+           <label for="shipping-select">Shipping</label>
+           <select name="shipping-select" id="shipping-select">
+            <option value="fedex">FedEx</option>
+            <option value="ups">UPS</option>
+            <option value="usps">USPS</option>
+           </select>
+          </fieldset>
+
+          <input type="submit" value="Add to Cart" />
+
+        </form>
+
+      </div>
+
+      <footer data-role="footer" data-position="fixed">
+        <a href="#contact" class="ui-btn-left">Contact Us</a>
+        <h4>&copy; 2019</h4>
+      </footer>
+    </section>
+    <!--END Page: dairy-free-->
+
+    <!--Page: contact-->
+    <section id="contact" data-role="page">
+      <header data-role="header" data-position="fixed">
+        <a href="#homescreen" class="ui-btn-left">Home</a>
+        <h1>Contact Us</h1>
+      </header>
+
+      <div data-role="main" class="ui-content">
+
+        <form method="get" action="">
+          <label for="first-name">First Name</label>
+          <input type="text" name="first-name" id="first-name" value="" placeholder="John">
+
+          <label for="last-name">Last Name</label>
+          <input type="text" name="last-name" id="last-name" value="" placeholder="Doe">
+
+          <label for="fav-color">Email</label>
+          <input type="text" name="fav-col" id="fav-color" value="" placeholder="john.doe@example.com">
+
+          <label for="fav-color">Comments</label>
+          <input type="text" name="fav-col" id="fav-color" value="" placeholder="">
+
+          <input type="submit" value="Submit" />
+        </form>
+
+      </div>
+
+      <footer data-role="footer" data-position="fixed">
+        <h4>&copy; 2019</h4>
+      </footer>
+    </section>
+    <!--END Page: gluten-free-->
+
+    <!--Page: about-->
+    <section id="about" data-role="page">
+      <header data-role="header" data-position="fixed">
+        <a href="#homescreen" class="ui-btn-left">Home</a>
+        <h1>About Us</h1>
+      </header>
+
+      <div data-role="main" class="ui-content">
+        <h4>About Us</h4>
+        <p>We are a web based health foods store. We specialize in gluten free and dairy free foods.</p>
+        <h4>About my device:</h4>
+        <p>You are running this app from the <span id="device-version"></span> platform and your battery is at <span id="device-battery-level"></span>%.</p>
+      </div>
+
+      <footer data-role="footer" data-position="fixed">
+        <a href="#contact" class="ui-btn-left">Contact Us</a>
+        <h4>&copy; 2019</h4>
+      </footer>
+    </section>
+    <!--END Page: gluten-free-->
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
